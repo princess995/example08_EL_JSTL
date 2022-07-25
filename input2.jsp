@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="mid.jsp" method="post">
+<form action="mid2.jsp" method="post">
 이름 : <input type="text" name="name"><br>
 국어 : <input type="text" name="kor"><br>
-<input type="submit" value="제출">
-<input type="reset" vaule="취소">
+<input type="submit" name="제출">
+<input type="reset" name="취소">
 </form>
 </body>
 </html>

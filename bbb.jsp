@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>ERROR : 존재하지 않는 id</h3>
+<img src="./image/1.png" width="180" height="144">
 </body>
 </html>

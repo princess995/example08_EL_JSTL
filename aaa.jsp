@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<img src="./image/fantasy.jpg">
+안녕
 </body>
 </html>
