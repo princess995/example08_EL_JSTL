@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%request.setCharacterEncoding("utf-8"); %>
     <%@include file="dbcon.jsp" %>
     <%@include file="top.jsp" %>
+<%request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,21 +24,29 @@ tr.colored:nth-child(odd){
 <title>Insert title here</title>
 </head>
 <body>
-<br>
-<h3>도서 현황</h3>
+<h3>검색 결과</h3>
+
+<%
+String serch = request.getParameter("serch");
+
+String sql = "select * from book where name like ? or wrt like ?";
+pstmt = con.prepareStatement(sql);
+pstmt.setString(1, "%"+serch+"%");
+pstmt.setString(2, "%"+serch+"%");
+res = pstmt.executeQuery(); %>
+
 <table width="500" align="center" >
 	<tr>
+		<th>검색어 : </th><td><%=serch %></td>
+	</tr>
+	<tr>
 		<th>일련번호</th> <th>도서제목</th> <th>저자</th> <th>출판사</th>
-		<th>가격</th> <th>표지</th> <th>비고</th>
+		<th>가격</th>
 	</tr>
 	<tr>
 		<td colspan="7" style="font-size:0.5em;">저자 혹은 제목을 클릭하면 도서의 상세정보를 열람 가능합니다.</td>
 	</tr>
-	
-	<%
-String sql = "select * from book";
-pstmt = con.prepareStatement(sql);
-res = pstmt.executeQuery();
+<%
 while(res.next())
 {
 	String no = res.getString(1);
@@ -47,17 +55,15 @@ while(res.next())
 	String com = res.getString(4);
 	int price = res.getInt(5);
 	String cover = res.getString(6);
+	String wrtde = res.getString(7);
+	String bookde = res.getString(8);
 	%>
-	
 	<tr class="colored">
 		<td><%=no %></td>
 		<td><a href="namede.jsp?no=<%=no%>"><%=name %></a></td>
 		<td><a href="wrtde.jsp?no=<%=no%>"><%=wrt %></a></td>
-		<td><%=com %></td> <td><%=price %></td> <td><%=cover %></td>	
-		<td><a href = "up.jsp?no=<%=no %>">수정</a> &nbsp; 
-		<a href = "del.jsp?no=<%=no %>">삭제 </a></td>
+		<td><%=com %></td> <td><%=price %></td>
 	</tr>
-	
 <%} %>
 
 </table>
