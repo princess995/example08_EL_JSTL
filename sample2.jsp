@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>
-	<a href="infoin.jsp">입력</a>
-	<a href="out.do">출력</a>
-	<a href="infoser.jsp">검색</a>
-</h3>
+<form action="sample2save.jsp" method="post">
+1, 2, 3 중에 입력 <br>
+<input type="text" name="city">
+<input type="submit">
+
+</form>
 </body>
 </html>

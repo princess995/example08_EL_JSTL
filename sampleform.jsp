@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="samout.jsp">출력</a>
-	<a href="sample.jsp">입력</a>
+<form action="samplesave.jsp" method="post">
+이름 : <input type="text" name="name"> <br>
+국어 : <input type="text" name="kor"> <br>
+<input type="submit">
+</form>
+
 </body>
 </html>
